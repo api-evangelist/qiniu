@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.qiniu.com/kodo/1302/qshell + https://github.com/qiniu/qshell
+cli:
+  name: qshell
+  description: >-
+    Official Qiniu developer tool (开发者工具) for administering Kodo object storage
+    from the command line — batch operations, sync, migration, upload/download,
+    bucket and CDN management.
+  repo: https://github.com/qiniu/qshell
+  docs: https://developer.qiniu.com/kodo/1302/qshell
+  language: go
+  install:
+    - method: release-binary
+      url: https://github.com/qiniu/qshell/releases
+    - method: source
+      command: go install github.com/qiniu/qshell/v2@latest
+  auth:
+    description: Register AccessKey/SecretKey account, then select active account.
+    commands:
+      - qshell account <AccessKey> <SecretKey> <name>
+      - qshell user cd <name>
+  command_groups:
+    - group: account
+      commands: [account, user]
+      purpose: Manage AK/SK credentials and switch between accounts.
+    - group: bucket
+      commands: [buckets, mkbucket, listbucket, listbucket2, domains]
+      purpose: List/create buckets and list objects.
+    - group: object
+      commands: [stat, delete, move, copy, chgm, chtype, expire, get, fput, rput]
+      purpose: Inspect and manipulate individual objects.
+    - group: batch
+      commands: [batchstat, batchdelete, batchcopy, batchmove, batchchgm, batchchtype, batchrename, batchexpire]
+      purpose: Bulk operations driven by a key list file.
+    - group: transfer
+      commands: [qupload, qupload2, qdownload, sync, fetch]
+      purpose: Upload directories, download buckets, sync and fetch from URLs.
+    - group: cdn
+      commands: [cdnrefresh, cdnprefetch]
+      purpose: Refresh and prefetch CDN cached resources.
+    - group: utility
+      commands: [b64encode, b64decode, urlencode, ts2d, d2ts, qetag, token, sign]
+      purpose: Encoding, timestamp, hashing and token-signing helpers.

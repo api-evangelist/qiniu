@@ -1,0 +1,57 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://developer.qiniu.com/kodo/1731/api-overview,
+  https://developer.qiniu.com/kodo/3928/error-responses,
+  https://github.com/qiniu/api-specs
+authentication:
+  style: hmac-signature
+  detail: AK/SK HMAC-SHA1 (Qiniu / QBox) management tokens + scoped upload tokens.
+  ref: authentication/qiniu-authentication.yml
+service_hosts:
+  note: >-
+    Qiniu splits functions across purpose-specific hosts rather than one base URL.
+  hosts:
+    - host: https://rs.qiniu.com
+      purpose: Bucket/object management (stat, delete, move, copy, chgm).
+    - host: https://rsf.qiniu.com
+      purpose: Object listing (list files).
+    - host: https://api.qiniu.com
+      purpose: IAM, fetch/async-fetch, media processing (pfop) and platform APIs.
+    - host: https://up.qiniu.com
+      purpose: Uploads (form + resumable/multipart).
+    - host: https://uc.qiniu.com
+      purpose: Bucket configuration and region lookup.
+pagination:
+  style: marker
+  request_params: [marker, limit]
+  response_fields: [items, marker]
+  detail: >-
+    List operations (get_objects / get_objects_v2, listbucket) return a `marker`
+    cursor; pass it back as the `marker` query param to fetch the next page.
+    An invalid marker returns HTTP 640.
+idempotency:
+  key_header: false
+  detail: >-
+    No client-supplied idempotency-key/dedup header is documented. The api-specs
+    DSL tags each operation with method-level idempotency (safe-to-retry) only;
+    management operations are naturally idempotent (delete/move/copy by fully
+    qualified key). Resumable uploads use a block/context token (HTTP 701 when it
+    expires) rather than an idempotency key.
+request_id:
+  header: X-Reqid
+  detail: Every response carries X-Reqid for tracing/support.
+error_envelope:
+  shape: '{ "code": int, "error": string }'
+  transport: HTTP status code is authoritative
+  ref: errors/qiniu-error-codes.yml
+versioning:
+  style: uri-path
+  detail: >-
+    Newer APIs carry a version in the path (e.g. /iam/v1/..., get_objects_v2,
+    get_buckets_v4). No global date/header version negotiation.
+rate_limiting:
+  signal: HTTP 573 (access frequency too high)
+  detail: No documented RateLimit-* response headers; throttling surfaces as 573.
+encoding:
+  entry_uri: URL-safe base64 of "<bucket>:<key>" (EncodedEntryURI) in management ops.

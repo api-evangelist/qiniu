@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: generated
+source: >-
+  Grounded in real Qiniu operations from https://github.com/qiniu/api-specs and
+  the Kodo developer docs; conventions/errors from repo artifacts.
+skills:
+  - file: qiniu-upload-and-manage-object.md
+    name: Upload and manage a Kodo object
+    api: https://github.com/qiniu/api-specs
+    operations: [upload, stat, copy_object, move_object, delete_object, modify_object_status]
+  - file: qiniu-provision-iam-user.md
+    name: Provision a Qiniu IAM sub-account
+    api: https://github.com/qiniu/api-specs
+    operations: [create_user, create_user_keypairs, create_policy, modify_user_policies, get_user]

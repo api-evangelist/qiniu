@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: probed
+source: live probes of /.well-known/ on qiniu hosts
+hosts_probed:
+  - https://qiniu.com
+  - https://api.qiniu.com
+  - https://developer.qiniu.com
+documents:
+  - path: /.well-known/security.txt
+    status: none
+    note: qiniu.com 301->www; api/developer hosts 404
+  - path: /.well-known/openid-configuration
+    status: none
+  - path: /.well-known/oauth-authorization-server
+    status: none
+  - path: /.well-known/api-catalog
+    status: none
+  - path: /.well-known/ai-plugin.json
+    status: none
+result: >-
+  No /.well-known/ discovery documents are published on the probed Qiniu hosts.
+  Qiniu authenticates with AK/SK HMAC signatures rather than OAuth/OIDC, so
+  openid-configuration / oauth-authorization-server are expected absent.

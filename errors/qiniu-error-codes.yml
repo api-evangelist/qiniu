@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.qiniu.com/kodo/3928/error-responses
+format: qiniu-json
+envelope:
+  content_type: application/json
+  shape: '{ "code": <httpCode int>, "error": "<errMsg string>" }'
+  request_id_header: X-Reqid
+  note: >-
+    The HTTP status code carries the primary error semantics; the JSON body
+    repeats the code and a human-readable message. Include X-Reqid (and all
+    response headers for 5xx) when contacting support.
+codes:
+  - status: 298
+    meaning: Partial success — some operations in a batch succeeded, others failed.
+  - status: 400
+    meaning: Malformed request; includes invalid upload-form parameters.
+  - status: 401
+    meaning: Authentication failed — invalid credentials, expired/incorrect token, or missing authorization.
+  - status: 403
+    meaning: Insufficient permissions — scope mismatch or account restriction.
+  - status: 404
+    meaning: Resource not found — bucket or mirrored resource missing.
+  - status: 405
+    meaning: Incorrect request method.
+  - status: 406
+    meaning: Upload data CRC32 checksum error.
+  - status: 413
+    meaning: Request exceeds size limits.
+  - status: 419
+    meaning: Account frozen.
+  - status: 478
+    meaning: Mirror source (image back-to-source) failure.
+  - status: 502
+    meaning: Bad gateway.
+  - status: 503
+    meaning: Service unavailable.
+  - status: 504
+    meaning: Operation timed out.
+  - status: 573
+    meaning: Resource access frequency too high (rate limited).
+  - status: 579
+    meaning: Upload succeeded but the callback failed.
+  - status: 599
+    meaning: Server-side operation failure.
+  - status: 608
+    meaning: Resource content was modified.
+  - status: 612
+    meaning: Resource does not exist or was deleted.
+  - status: 614
+    meaning: Target resource already exists.
+  - status: 630
+    meaning: Bucket creation limit reached.
+  - status: 631
+    meaning: Bucket does not exist.
+  - status: 640
+    meaning: Invalid marker parameter in a list operation.
+  - status: 701
+    meaning: Resumable upload block/context expired, or upload endpoint incorrect.

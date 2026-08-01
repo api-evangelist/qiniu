@@ -1,0 +1,80 @@
+generated: '2026-07-20'
+method: derived
+source: https://github.com/qiniu/api-specs (iam/, storage/, audit/, media/)
+entities:
+  - name: Bucket
+    domain: storage
+    key: name
+    description: Object storage container; carries region, access mode, CORS rules, lifecycle rules, quota, tags, and bound domains.
+  - name: Object
+    domain: storage
+    key: bucket:key
+    description: Stored file identified by bucket + key; has mime type, storage type, status, hash, fsize, put/expire time.
+  - name: Domain
+    domain: storage
+    key: domain
+    description: CDN/access domain bound to a bucket.
+  - name: Region
+    domain: storage
+    key: id
+    description: Storage region / zone.
+  - name: FetchTask
+    domain: storage
+    key: id
+    description: Asynchronous fetch-from-URL task (async_fetch_object / get_async_fetch_task).
+  - name: IamUser
+    domain: iam
+    key: iuid
+    description: Sub-account under a root user; has alias, enabled flag, keypairs.
+  - name: IamKeyPair
+    domain: iam
+    key: access_key
+    description: AK/SK credential pair belonging to an IAM user; enable/disable/delete.
+  - name: IamGroup
+    domain: iam
+    key: id
+    description: Group of IAM users; policies attach to groups.
+  - name: IamPolicy
+    domain: iam
+    key: id
+    description: Permission policy binding services/actions/resources; attaches to users and groups.
+  - name: Service
+    domain: iam
+    key: name
+    description: Qiniu service (kodo, cdn, ...) whose actions/resources policies reference.
+relationships:
+  - from: Object
+    to: Bucket
+    kind: belongs_to
+    via: bucket
+  - from: Domain
+    to: Bucket
+    kind: belongs_to
+    via: bucket
+  - from: Bucket
+    to: Region
+    kind: belongs_to
+    via: region
+  - from: IamUser
+    to: IamKeyPair
+    kind: has_many
+    via: iuid
+  - from: IamUser
+    to: IamGroup
+    kind: has_many
+    via: group_membership
+  - from: IamGroup
+    to: IamPolicy
+    kind: has_many
+    via: policy_binding
+  - from: IamUser
+    to: IamPolicy
+    kind: has_many
+    via: policy_binding
+  - from: IamPolicy
+    to: Service
+    kind: references
+    via: service_names
+notes: >-
+  Derived from Qiniu's api-specs YAML DSL (custom format, not OpenAPI). id-prefixes
+  are not published; keys shown are the identifying fields in the specs.

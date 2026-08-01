@@ -1,25 +1,133 @@
 aid: qiniu
-name: qiniu
-description: qiniu is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: Qiniu Cloud
+description: >-
+  Qiniu Cloud (七牛云) is a data-centric cloud infrastructure platform for storing,
+  delivering, processing, and computing over large-scale unstructured data. Its
+  core products are Object Storage (Kodo), CDN and full-site acceleration (DCDN),
+  live and on-demand audio/video PaaS, intelligent media processing (Dora), and
+  AI large-model inference and agent workflows. Developers integrate over REST
+  APIs authenticated with AccessKey/SecretKey HMAC signatures, first-party SDKs in
+  a dozen languages, the qshell CLI, and an official MCP server. This profile was
+  seeded as a portfolio company of Qiming Venture Partners and enriched from
+  Qiniu's public developer surface (developer.qiniu.com, github.com/qiniu).
 url: https://raw.githubusercontent.com/api-evangelist/qiniu/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - qiming
-x-tier: stub
+x-tier: profiled
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.qiniu.com/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Cloud
+- Object Storage
+- CDN
+- Media Processing
+- Live Streaming
+- IAM
+- SDK
+- AI
+- China
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Object Storage (Kodo)
+  description: >-
+    REST API for Qiniu Kodo object storage — bucket administration, object
+    upload/download, stat/copy/move/delete, lifecycle and CORS rules, async fetch,
+    and CDN prefetch/refresh. S3-compatible surface available.
+  humanURL: https://developer.qiniu.com/kodo
+  baseURL: https://rs.qiniu.com
+  tags:
+  - Object Storage
+  - Storage
+  - CDN
+  properties:
+  - type: APIReference
+    url: https://developer.qiniu.com/kodo/1731/api-overview
+  - type: GettingStarted
+    url: https://developer.qiniu.com/kodo/1231/upload-process
+- name: IAM
+  description: >-
+    Identity and access management API — IAM sub-users, AK/SK keypairs, groups,
+    and permission policies scoping services/actions/resources.
+  humanURL: https://developer.qiniu.com/af
+  baseURL: https://api.qiniu.com
+  tags:
+  - IAM
+  - Security
 common:
 - type: Website
   url: https://qiniu.com
+- type: DeveloperPortal
+  url: https://developer.qiniu.com
+- type: Documentation
+  url: https://developer.qiniu.com
+- type: APIReference
+  url: https://developer.qiniu.com/kodo/1731/api-overview
+- type: GettingStarted
+  url: https://developer.qiniu.com/kodo/1231/upload-process
+- type: Support
+  url: https://developer.qiniu.com/faq
+- type: GitHubOrganization
+  url: https://github.com/qiniu
+- type: Pricing
+  url: https://www.qiniu.com/prices
+- type: Login
+  url: https://sso.qiniu.com/
+- type: TermsOfService
+  url: https://www.qiniu.com/user-agreement
+- type: PrivacyPolicy
+  url: https://www.qiniu.com/privacy-right
+- type: LLMsTxt
+  url: llms/qiniu-llms.txt
+- type: Packages
+  url: packages/qiniu-packages.yml
+- type: SDKs
+  url: packages/qiniu-packages.yml
+- type: CLI
+  url: cli/qiniu-cli.yml
+- type: MCPServer
+  url: mcp/qiniu-mcp.yml
+- type: Authentication
+  url: authentication/qiniu-authentication.yml
+- type: Conventions
+  url: conventions/qiniu-conventions.yml
+- type: ErrorCatalog
+  url: errors/qiniu-error-codes.yml
+- type: Conformance
+  url: conformance/qiniu-conformance.yml
+- type: DataModel
+  url: data-model/qiniu-data-model.yml
+- type: DomainSecurity
+  url: security/qiniu-domain-security.yml
+- type: AgentSkill
+  name: Upload and manage a Kodo object
+  url: skills/qiniu-upload-and-manage-object.md
+- type: AgentSkill
+  name: Provision a Qiniu IAM sub-account
+  url: skills/qiniu-provision-iam-user.md
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1
