@@ -4,11 +4,11 @@ status: published
 source: https://github.com/qiniu/qiniu-mcp-server + https://pypi.org/project/qiniu-mcp-server/
 server:
   name: qiniu-mcp-server
-  description: >-
-    Official Qiniu Cloud MCP server exposing Kodo object storage, intelligent
-    media processing (Dora), CDN, and live-streaming operations to MCP-capable
-    AI clients through a unified interface.
-  transport: [stdio, sse]
+  description: Official Qiniu Cloud MCP server exposing Kodo object storage, intelligent media processing
+    (Dora), CDN, and live-streaming operations to MCP-capable AI clients through a unified interface.
+  transport:
+  - stdio
+  - sse
   repo: https://github.com/qiniu/qiniu-mcp-server
   package:
     registry: pypi
@@ -17,37 +17,40 @@ server:
   install:
     command: uvx qiniu-mcp-server
   config_env:
-    - QINIU_ACCESS_KEY
-    - QINIU_SECRET_KEY
-    - QINIU_REGION_NAME
-    - QINIU_ENDPOINT_URL
-    - QINIU_BUCKETS
-    - QINIU_LIVE_API_KEY   # live-streaming tools only
+  - QINIU_ACCESS_KEY
+  - QINIU_SECRET_KEY
+  - QINIU_REGION_NAME
+  - QINIU_ENDPOINT_URL
+  - QINIU_BUCKETS
+  - QINIU_LIVE_API_KEY
 tool_groups:
-  - group: storage
-    tools:
-      - list_buckets
-      - list_objects
-      - upload_file
-      - get_object
-      - read_object_content
-      - generate_object_url
-  - group: media-processing
-    tools:
-      - image_scale_by_percent
-      - image_round_corner
-  - group: cdn
-    tools:
-      - cdn_refresh
-      - cdn_prefetch
-  - group: live-streaming
-    tools:
-      - create_live_space
-      - create_live_stream
-      - bind_live_domain
-      - get_stream_address
-      - get_live_usage
-notes: >-
-  Tool names above are grouped from the published server documentation; exact
-  identifiers may vary by release. Covers Storage (Kodo), CDN, Dora media
-  processing, and live streaming.
+- group: storage
+  tools:
+  - list_buckets
+  - list_objects
+  - upload_file
+  - get_object
+  - read_object_content
+  - generate_object_url
+- group: media-processing
+  tools:
+  - image_scale_by_percent
+  - image_round_corner
+- group: cdn
+  tools:
+  - cdn_refresh
+  - cdn_prefetch
+- group: live-streaming
+  tools:
+  - create_live_space
+  - create_live_stream
+  - bind_live_domain
+  - get_stream_address
+  - get_live_usage
+notes: Tool names above are grouped from the published server documentation; exact identifiers may vary
+  by release. Covers Storage (Kodo), CDN, Dora media processing, and live streaming.
+deployment:
+  mode: local-stdio
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census
