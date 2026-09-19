@@ -52,7 +52,7 @@ tags:
 - CDN
 - Media Processing
 - Live Streaming
-- IAM
+- Identity and Access Management
 - SDK
 - Artificial Intelligence
 - China
@@ -96,6 +96,9 @@ apis:
   humanURL: https://developer.qiniu.com/af
   baseURL: https://api.qiniu.com
   tags:
+  - Identity and Access Management
+  - Security
+  tags_raw:
   - IAM
   - Security
 common:
