@@ -2,10 +2,15 @@ generated: '2026-07-20'
 method: probed
 source: live probes of /.well-known/ on qiniu hosts
 hosts_probed:
-  - https://qiniu.com
-  - https://api.qiniu.com
-  - https://developer.qiniu.com
-documents:
+- https://qiniu.com
+- https://api.qiniu.com
+- https://developer.qiniu.com
+result: No /.well-known/ discovery documents are published on the probed Qiniu hosts. Qiniu authenticates
+  with AK/SK HMAC signatures rather than OAuth/OIDC, so openid-configuration / oauth-authorization-server
+  are expected absent.
+hosts:
+- host: ''
+  documents:
   - path: /.well-known/security.txt
     status: none
     note: qiniu.com 301->www; api/developer hosts 404
@@ -17,7 +22,8 @@ documents:
     status: none
   - path: /.well-known/ai-plugin.json
     status: none
-result: >-
-  No /.well-known/ discovery documents are published on the probed Qiniu hosts.
-  Qiniu authenticates with AK/SK HMAC signatures rather than OAuth/OIDC, so
-  openid-configuration / oauth-authorization-server are expected absent.
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
