@@ -52,7 +52,6 @@ tags:
 - CDN
 - Media Processing
 - Live Streaming
-- Identity and Access Management
 - SDK
 - Artificial Intelligence
 - China
@@ -63,7 +62,6 @@ tags_raw:
 - CDN
 - Media Processing
 - Live Streaming
-- IAM
 - SDK
 - AI
 - China
@@ -157,3 +155,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 14
   pass: local-v1
+x-tags-removed:
+- Identity and Access Management
