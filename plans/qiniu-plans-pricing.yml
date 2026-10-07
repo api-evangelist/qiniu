@@ -1,0 +1,87 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.qiniu.com/prices/kodo
+sources:
+- https://www.qiniu.com/prices/kodo
+- https://www.qiniu.com/prices
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: true
+note: 对象存储 Kodo 价格页，按量后付费与资源包预付费，含免费额度（10GB 存储、10GB 回源流量、10万次写请求、100万次读请求、上传流量无上限）。
+plan_count: 10
+plans:
+- name: 标准存储 存储空间费用（中国大陆）
+  price_text: 0.115 元/GB/月
+  price: 0.115
+  currency: CNY
+  period: month
+  unit: GB
+  included_quota: 标准存储每月免费空间 10GB
+- name: 低频存储 存储空间费用（中国大陆）
+  price_text: 0.075 元/GB/月
+  price: 0.075
+  currency: CNY
+  period: month
+  unit: GB
+- name: 归档存储 存储空间费用（中国大陆）
+  price_text: 0.028 元/GB/月
+  price: 0.028
+  currency: CNY
+  period: month
+  unit: GB
+- name: 深度归档 存储空间费用（中国大陆）
+  price_text: 0.012 元/GB/月
+  price: 0.012
+  currency: CNY
+  period: month
+  unit: GB
+- name: 外网流出流量 0 - 100 TB（中国大陆）
+  price_text: 0.26 元/GB
+  price: 0.26
+  currency: CNY
+  period: per-use
+  unit: GB
+  overage: 100 TB 以上 0.24 元/GB
+- name: CDN 回源流量（中国大陆）
+  price_text: 0.15 元/GB
+  price: 0.15
+  currency: CNY
+  period: per-use
+  unit: GB
+  included_quota: 标准存储每月免费 CDN 回源流量 10GB
+- name: 标准存储 PUT/DELETE 请求（中国大陆）
+  price_text: 0.01 元/万次
+  price: 0.01
+  currency: CNY
+  period: per-use
+  unit: 万次
+  included_quota: 标准存储每月免费写请求 10万次
+- name: 海外标准存储 0 - 50 TB
+  price_text: 0.022 USD/GB/月
+  price: 0.022
+  currency: USD
+  period: month
+  unit: GB
+  overage: 50 TB - 500 TB 0.0216 USD/GB/月
+- name: 海外外网流出流量 0 - 100 TB
+  price_text: 0.07 USD/GB
+  price: 0.07
+  currency: USD
+  period: per-use
+  unit: GB
+  overage: 100 TB 以上 0.055 USD/GB
+- name: 预付费资源包 标准存储 12个月及以上
+  price_text: '0.0886'
+  price: 0.0886
+  currency: CNY
+  period: month
+  unit: 元/GB
