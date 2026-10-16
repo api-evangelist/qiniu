@@ -1,0 +1,14 @@
+{
+  "repo": "qiniu",
+  "feeds": [
+    {
+      "source": "https://news.qiniu.com/rss.xml",
+      "feed_url": "https://news.qiniu.com/rss.xml",
+      "title": "",
+      "saved": 18,
+      "method": "feed"
+    }
+  ],
+  "post_count": 18,
+  "fetched": "2026-10-10T13:15:00Z"
+}
