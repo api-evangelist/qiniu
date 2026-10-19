@@ -32,12 +32,157 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
+- partner_name: Go module proxy
+  partner: null
+  partner_match: null
+  type: register
+  direction: provider-built
+  category: official SDK (Go)
+  evidence: https://pkg.go.dev/github.com/qiniu/go-sdk/v7
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/qiniu/go-sdk/v7
+      version: v7.29.0
+      released: '2026-09-20'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/qiniu/go-sdk/v7
+      repo_leg: github-org:qiniu
+      publisher_leg: org:qiniu
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.qiniu/qiniu-android-sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.qiniu:qiniu-android-sdk
+      version: 8.11.0
+      released: '2026-04-28'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.qiniu/qiniu-android-sdk
+      repo_leg: github-org:qiniu
+      publisher_leg: groupId:qiniu.com
+      matched_by: domain
+    - name: com.qiniu:qiniu-java-sdk
+      version: 7.19.0
+      released: '2025-06-20'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.qiniu/qiniu-java-sdk
+      repo_leg: github-org:qiniu
+      publisher_leg: groupId:qiniu.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/qiniu
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: qiniu
+      version: 7.15.2
+      released: '2026-04-22'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/qiniu
+      repo_leg: github-org:qiniu
+      publisher_leg: email:qiniu.com
+      matched_by: domain
+    - name: qiniu-js
+      version: 3.4.4
+      released: '2026-03-24'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/qiniu-js
+      repo_leg: github-org:qiniu
+      publisher_leg: email:qiniu.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/qiniu/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: qiniu
+      version: 7.18.0
+      released: '2026-06-30'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/qiniu/
+      repo_leg: github-org:qiniu
+      publisher_leg: email:qiniu.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 generated: '2026-10-15'
 method: searched
 source:
 - https://github.com/cncf/landscape
 - https://github.com/cncf/k8s-conformance
 checked:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
 - https://focus.finops.org/data-generators/
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
